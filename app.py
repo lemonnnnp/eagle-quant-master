@@ -409,13 +409,11 @@ else:
                             sentiment_label = "⚪ 中性公告 (Neutral)"
                             bg_color = "#f1f3f4"
 
-                        # 使用 Streamlit HTML 渲染一個漂亮的 Bloomberg 風格卡片
+# 使用 Streamlit HTML 渲染一個漂亮的 Bloomberg 風格卡片
                         st.markdown(f"""
                         <div style="background-color:{bg_color}; padding:15px; border-radius:6px; margin-bottom:10px; border-left: 5px solid {'#137333' if compound>=0.05 else '#c5221f' if compound<=-0.05 else '#5f6368'};">
                             <span style="font-size: 12px; color: #5f6368;">⏱️ {pub_time} | 來源: {publisher}</span><br>
                             <a href="{link}" target="_blank" style="text-decoration: none; color: #1a0dab; font-weight: bold; font-size: 16px;">{title}</a><br>
                             <span style="font-size: 13px; font-weight: bold; margin-top: 5px; display: inline-block;">情緒診斷：{sentiment_label} (得分: {compound:.2f})</span>
                         </div>
-                        """, unsafe_allowed_html=True)
-            except Exception as e:
-                st.error(f"❌ 無法加載 {selected_news_ticker} 的新聞數據: {str(e)}")
+                        """, unsafe_allow_html=True) # ✨ 修正：由 allowed 改為 allow
