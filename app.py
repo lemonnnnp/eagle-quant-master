@@ -351,7 +351,7 @@ else:
             st.caption(f"💡 **模型診斷**：{style_desc} {tweak_reason}")
 
         with v_col2:
-            st.markdown("#### 📈 組合回測特徵")
+            st.markdown("#### 📈 組合回測特蹤")
             st.metric("夏普比率 (Sharpe Ratio)", f"{sharpe} x", help="大於 1.5 代表具備極高風險回報比")
             st.metric("最大歷史回撤 (Max Drawdown)", f"{max_dd}%", delta_color="inverse")
 
@@ -406,11 +406,11 @@ else:
                             bg_color = "#f1f3f4"
 
                         st.markdown(f"""
-                        <div style="background-color:{bg_color}; padding:15px; border-radius:6px; margin-bottom:10px; border-left: 5px solid {'#137333' if compound!>=0.05 else '#c5221f' if compound<=-0.05 else '#5f6368'};">
+                        <div style="background-color:{bg_color}; padding:15px; border-radius:6px; margin-bottom:10px; border-left: 5px solid {'#137333' if compound >= 0.05 else '#c5221f' if compound<=-0.05 else '#5f6368'};">
                             <span style="font-size: 12px; color: #5f6368;">⏱️ {pub_time} | 來源: {publisher}</span><br>
                             <a href="{link}" target="_blank" style="text-decoration: none; color: #1a0dab; font-weight: bold; font-size: 16px;">{title}</a><br>
                             <span style="font-size: 13px; font-weight: bold; margin-top: 5px; display: inline-block;">情緒診斷：{sentiment_label} (得分: {compound:.2f})</span>
                         </div>
-                        """, unsafe_allow_html=True) # 👈 修正：這裡已完美改成原生 allow 參數
+                        """, unsafe_allow_html=True)
             except Exception as e:
                 st.error(f"❌ 無法加載 {selected_news_ticker} 的新聞數據: {str(e)}")
