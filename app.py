@@ -9,7 +9,7 @@ import datetime
 # 1. 網頁基礎設定
 st.set_page_config(page_title="EagleQuant Master Pro", layout="wide")
 
-st.title("🦅 EagleQuant Master Pro | 三大頂級流派大腦 & 動態資產配置系統")
+st.title("hi 我係山並)
 st.caption("自定義資產池實時穿透 • 三大風格矩陣 • 10萬本金預期 20% 回報動態配倉")
 
 # =========================================================================
